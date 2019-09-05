@@ -1022,22 +1022,24 @@ Class dzn_baseClassToSwizzleForTarget(id target)
     }
 }
 
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
-{
-    UIView *hitView = [super hitTest:point withEvent:event];
-    
-    // Return any UIControl instance such as buttons, segmented controls, switches, etc.
-    if ([hitView isKindOfClass:[UIControl class]]) {
-        return hitView;
-    }
-    
-    // Return either the contentView or customView
-    if ([hitView isEqual:_contentView] || [hitView isEqual:_customView]) {
-        return hitView;
-    }
-    
-    return nil;
-}
+#pragma mark - 处理不能全屏点击触发手势问题
+
+//- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+//{
+//    UIView *hitView = [super hitTest:point withEvent:event];
+//
+//    // Return any UIControl instance such as buttons, segmented controls, switches, etc.
+//    if ([hitView isKindOfClass:[UIControl class]]) {
+//        return hitView;
+//    }
+//
+//    // Return either the contentView or customView
+//    if ([hitView isEqual:_contentView] || [hitView isEqual:_customView]) {
+//        return hitView;
+//    }
+//
+//    return nil;
+//}
 
 @end
 
